@@ -1,9 +1,11 @@
-package org.giorgi.personalbudget;
+package org.giorgi.personalbudget.activity;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import org.giorgi.personalbudget.R;
 
 
 public class MainActivity extends ActionBarActivity {
