@@ -7,5 +7,6 @@ public class PersonalBudget extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        // TODO: Implement!
     }
 }
