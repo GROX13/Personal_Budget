@@ -4,6 +4,9 @@ package org.giorgi.personalbudget.sms;
  * Container class for message.
  */
 public class Sms {
+    public static final String BOG = "BOG";
+    public static final String TBC = "TBC";
+
     private String source;
     private String text;
 

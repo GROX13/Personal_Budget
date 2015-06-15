@@ -1,9 +1,8 @@
 package org.giorgi.personalbudget.parser;
 
-import android.provider.Telephony;
-
-import org.giorgi.personalbudget.api.Info;
+import org.giorgi.personalbudget.api.Transaction;
 import org.giorgi.personalbudget.api.Parser;
+import org.giorgi.personalbudget.sms.Sms;
 
 /**
  * TODO: Implement!
@@ -12,7 +11,7 @@ import org.giorgi.personalbudget.api.Parser;
 public class TbcParser implements Parser {
 
     @Override
-    public Info parseMessage(Telephony.Sms message) {
+    public Transaction parseMessage(Sms message) {
         return null;
     }
 

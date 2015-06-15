@@ -1,9 +1,9 @@
 package org.giorgi.personalbudget.api;
 
-import android.provider.Telephony;
+import org.giorgi.personalbudget.sms.Sms;
 
 public interface Parser {
 
-    Info parseMessage(Telephony.Sms message);
+    Transaction parseMessage(Sms message);
 
 }
