@@ -1,19 +1,34 @@
 package org.giorgi.personalbudget.activity;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import org.giorgi.personalbudget.R;
+import org.giorgi.personalbudget.adapter.CategoryAdapter;
 
 
-public class MainActivity extends ActionBarActivity {
+public class CategoriesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_categories);
+
+        ListView listView = (ListView) findViewById(R.id.mobile_list);
+        listView.setAdapter(new CategoryAdapter(this));
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("VIEW.onClick", "" + id);
+                // TODO: Implement starting new activity!
+            }
+        });
     }
 
     @Override
