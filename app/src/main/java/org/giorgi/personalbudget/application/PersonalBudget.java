@@ -9,9 +9,18 @@ import java.util.List;
 
 public class PersonalBudget extends Application {
     private static List<Category> categoryList;
+    private static int selected = -1;
 
     public static List<Category> getCategoryList() {
         return categoryList;
+    }
+
+    public static void setSelected(int selected) {
+        PersonalBudget.selected = selected;
+    }
+
+    public static Category getSelectedCategory() {
+        return categoryList.get(selected);
     }
 
     @Override
