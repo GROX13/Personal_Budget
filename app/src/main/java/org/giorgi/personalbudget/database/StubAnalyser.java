@@ -20,12 +20,19 @@ public class StubAnalyser implements DataBaseAnalyser {
     @Override
     public List<Category> getCategoryList() {
         List<Category> categories = new ArrayList<>();
-        categories.add(new Category(UTILITY_COSTS));
-        categories.add(new Category(ENTERTAINMENT));
-        categories.add(new Category(EAT_AND_DRINKS));
-        categories.add(new Category(PETROL));
-        categories.add(new Category(PHONE));
-        categories.add(new Category(OTHERS));
+        Category category;
+        category = new Category(UTILITY_COSTS);
+        categories.add(category);
+        category = new Category(ENTERTAINMENT);
+        categories.add(category);
+        category = new Category(EAT_AND_DRINKS);
+        categories.add(category);
+        category = new Category(PETROL);
+        categories.add(category);
+        category = new Category(PHONE);
+        categories.add(category);
+        category = new Category(OTHERS);
+        categories.add(category);
         return categories;
     }
 

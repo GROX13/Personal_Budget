@@ -1,13 +1,11 @@
 package org.giorgi.personalbudget.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import org.giorgi.personalbudget.R;
@@ -45,8 +43,8 @@ public class CategoryAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = activity.getLayoutInflater();
-        View row;
-        row = inflater.inflate(R.layout.element_category, parent, false);
+        @SuppressLint("ViewHolder")
+        View row = inflater.inflate(R.layout.element_category, parent, false);
         TextView name = (TextView) row.findViewById(R.id.element_label);
         name.setText(PersonalBudget.getCategoryList().get(position).getCategoryName());
         return row;
