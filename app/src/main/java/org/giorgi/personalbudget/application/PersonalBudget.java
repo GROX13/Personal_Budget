@@ -26,6 +26,7 @@ public class PersonalBudget extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        // TODO: This line of code should be changed to real analyser!
         StubAnalyser analyser = new StubAnalyser();
         categoryList = analyser.getCategoryList();
     }
