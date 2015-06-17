@@ -23,8 +23,8 @@ public class Category {
         this.transactions.add(transaction);
     }
 
-    public double getIncome() {
-        double income = 0;
+    public float getIncome() {
+        float income = 0;
         for (int i = 0; i < transactions.size(); i++) {
             Transaction transaction = transactions.get(i);
             if (transaction.isIncome())
@@ -33,8 +33,8 @@ public class Category {
         return income;
     }
 
-    public double getExpenses() {
-        double expenses = 0;
+    public float getExpenses() {
+        float expenses = 0;
         for (int i = 0; i < transactions.size(); i++) {
             Transaction transaction = transactions.get(i);
             if (transaction.isExpense())
@@ -43,8 +43,8 @@ public class Category {
         return expenses;
     }
 
-    public double getIncomeInPeriod(String startDate, String endDate) {
-        double income = 0;
+    public float getIncomeInPeriod(String startDate, String endDate) {
+        float income = 0;
         for (int i = 0; i < transactions.size(); i++) {
             Transaction transaction = transactions.get(i);
             if (transaction.isIncome())
@@ -54,8 +54,8 @@ public class Category {
         return income;
     }
 
-    public double getExpensesInPeriod(String startDate, String endDate) {
-        double expenses = 0;
+    public float getExpensesInPeriod(String startDate, String endDate) {
+        float expenses = 0;
         for (int i = 0; i < transactions.size(); i++) {
             Transaction transaction = transactions.get(i);
             if (transaction.isExpense())

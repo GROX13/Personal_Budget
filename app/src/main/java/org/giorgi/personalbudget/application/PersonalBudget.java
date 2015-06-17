@@ -11,8 +11,13 @@ public class PersonalBudget extends Application {
     private static List<Category> categoryList;
     private static int selected = -1;
 
-    public static List<Category> getCategoryList() {
-        return categoryList;
+    public static void addCategory(String category) {
+        // TODO: Implement!
+        categoryList.add(new Category(category));
+    }
+
+    public static void removeCategory(int index) {
+        // TODO: Implement!
     }
 
     public static void setSelected(int selected) {
@@ -20,7 +25,11 @@ public class PersonalBudget extends Application {
     }
 
     public static Category getSelectedCategory() {
-        return categoryList.get(selected);
+        return selected < 0 ? null : categoryList.get(selected);
+    }
+
+    public static List<Category> getCategoryList() {
+        return categoryList;
     }
 
     @Override

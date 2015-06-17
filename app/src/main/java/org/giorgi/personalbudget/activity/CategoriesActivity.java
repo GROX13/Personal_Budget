@@ -47,9 +47,19 @@ public class CategoriesActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.action_chart_categories:
+                Intent intent = new Intent(this, CategoriesChartActivity.class);
+                this.startActivity(intent);
+                return true;
+            case R.id.action_add_category:
+                return true;
+            case R.id.action_delete_category:
+                return true;
+            case R.id.action_settings:
+                return true;
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);
