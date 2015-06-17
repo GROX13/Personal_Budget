@@ -55,7 +55,7 @@ public class CategoriesChartActivity extends AppCompatActivity {
         ArrayList<Entry> income = displayIncome(categories);
         ArrayList<Entry> expenses = displayExpenses(categories);
 
-        // create a dataset and give it a type
+        // create a data set and give it a type
         LineDataSet set1 = new LineDataSet(income, "Income");
         LineDataSet set2 = new LineDataSet(expenses, "Expenses");
 

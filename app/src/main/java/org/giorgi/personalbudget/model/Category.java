@@ -1,6 +1,7 @@
 package org.giorgi.personalbudget.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * TODO: Implement!
@@ -63,6 +64,10 @@ public class Category {
                     expenses += transaction.getAmount();
         }
         return expenses;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
     }
 
     private boolean isInPeriod(Transaction transaction, String startDate, String endDate) {

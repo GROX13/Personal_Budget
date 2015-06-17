@@ -4,10 +4,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import org.giorgi.personalbudget.R;
+import org.giorgi.personalbudget.adapter.TransactionAdapter;
 import org.giorgi.personalbudget.application.PersonalBudget;
+import org.giorgi.personalbudget.model.Category;
 
 
 public class CategoryActivity extends AppCompatActivity {
@@ -17,8 +21,20 @@ public class CategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
-        TextView view = (TextView) findViewById(R.id.category_name);
-        view.setText(PersonalBudget.getSelectedCategory().getCategoryName());
+        Category category = PersonalBudget.getSelectedCategory();
+        setTitle(category.getCategoryName());
+
+        ListView listView = (ListView) findViewById(R.id.activity_list);
+        listView.setAdapter(new TransactionAdapter(this));
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // TODO:
+//                PersonalBudget.setSelected(position);
+//                Intent intent = new Intent(view.getContext(), CategoryActivity.class);
+//                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

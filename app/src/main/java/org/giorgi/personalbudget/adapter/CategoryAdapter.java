@@ -41,9 +41,9 @@ public class CategoryAdapter extends BaseAdapter {
     }
 
     @Override
+    @SuppressLint("ViewHolder")
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = activity.getLayoutInflater();
-        @SuppressLint("ViewHolder")
         View row = inflater.inflate(R.layout.element_category, parent, false);
         TextView name = (TextView) row.findViewById(R.id.element_label);
         name.setText(PersonalBudget.getCategoryList().get(position).getCategoryName());

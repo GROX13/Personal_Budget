@@ -8,4 +8,7 @@
     <string name="action_delete_category">Delete Category</string>
     <string name="action_see_chart">See Chart</string>
     <string name="title_activity_categories_chart">Categories Chart</string>
+    <string name="image_description">image</string>
+    <string name="amount">Amount:</string>
+    <string name="date">Date:</string>
 </resources>
