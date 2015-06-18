@@ -13,10 +13,6 @@ import org.giorgi.personalbudget.R;
 import org.giorgi.personalbudget.application.PersonalBudget;
 import org.giorgi.personalbudget.model.Transaction;
 
-/**
- * TODO:
- * Created by Giorgi on 6/17/2015.
- */
 public class TransactionAdapter extends BaseAdapter {
     private Activity activity;
 

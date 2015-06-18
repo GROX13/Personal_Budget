@@ -46,17 +46,24 @@ public class CategoriesActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
+        Intent intent = null;
         switch (id) {
             case R.id.action_chart_categories:
-                Intent intent = new Intent(this, CategoriesChartActivity.class);
+                intent = new Intent(this, CategoriesChartActivity.class);
+                this.startActivity(intent);
+                return true;
+            case R.id.action_chart_monthly:
+                intent = new Intent(this, MonthlyChartActivity.class);
                 this.startActivity(intent);
                 return true;
             case R.id.action_add_category:
+                // TODO:
                 return true;
             case R.id.action_delete_category:
+                // TODO:
                 return true;
             case R.id.action_settings:
+                // TODO:
                 return true;
             default:
                 break;

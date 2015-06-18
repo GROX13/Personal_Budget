@@ -16,6 +16,8 @@ import org.giorgi.personalbudget.model.Category;
 
 public class CategoryActivity extends AppCompatActivity {
 
+    private static int selected = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +31,7 @@ public class CategoryActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // TODO:
-//                PersonalBudget.setSelected(position);
-//                Intent intent = new Intent(view.getContext(), CategoryActivity.class);
-//                view.getContext().startActivity(intent);
+                selected = position;
             }
         });
     }
@@ -51,9 +50,15 @@ public class CategoryActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.action_move:
+                // TODO:
+                return true;
+            case R.id.action_settings:
+                // TODO:
+                return true;
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);
