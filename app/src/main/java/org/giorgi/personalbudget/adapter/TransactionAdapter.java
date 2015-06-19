@@ -18,6 +18,7 @@ public class TransactionAdapter extends BaseAdapter {
 
     public TransactionAdapter(Activity categoryActivity) {
         this.activity = categoryActivity;
+        PersonalBudget.registerAdapter(this);
     }
 
     @Override

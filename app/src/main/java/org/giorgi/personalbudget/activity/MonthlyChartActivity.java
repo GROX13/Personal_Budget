@@ -23,6 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -36,7 +37,7 @@ public class MonthlyChartActivity extends AppCompatActivity {
 
         LineChart mChart = (LineChart) findViewById(R.id.line_chart);
         mChart.setDrawGridBackground(false);
-        mChart.setDescription("Chart displays income and expenses of different categories.");
+        mChart.setDescription("Chart displays income and expenses of different months.");
         mChart.setNoDataTextDescription("You need to provide data for the chart.");
         mChart.setHighlightEnabled(true);
         mChart.setTouchEnabled(true);
@@ -45,7 +46,7 @@ public class MonthlyChartActivity extends AppCompatActivity {
 
         YAxis leftAxis = mChart.getAxisLeft();
         leftAxis.removeAllLimitLines(); // reset all limit lines to avoid overlapping lines
-        leftAxis.setAxisMaxValue(200f);
+//        leftAxis.setAxisMaxValue(PersonalBudget.getMaxValue() + 50f);
         leftAxis.setAxisMinValue(0f);
         leftAxis.setStartAtZero(false);
         leftAxis.enableGridDashedLine(10f, 10f, 0f);
@@ -59,6 +60,18 @@ public class MonthlyChartActivity extends AppCompatActivity {
 
         ArrayList<Entry> income = displayIncome(categories, xValues);
         ArrayList<Entry> expenses = displayExpenses(categories, xValues);
+
+        float max = 0.0f;
+        for (int i = 0; i < income.size(); i++) {
+            float inc = income.get(i).getVal();
+            if (inc > max)
+                max = inc;
+            float exp = expenses.get(i).getVal();
+            if (exp > max)
+                max = exp;
+        }
+
+        leftAxis.setAxisMaxValue(max + 50f);
 
         // create a data set and give it a type
         LineDataSet set1 = new LineDataSet(income, "Income");
@@ -97,7 +110,7 @@ public class MonthlyChartActivity extends AppCompatActivity {
 
     private ArrayList<Entry> displayExpenses(List<Category> categories, List<String> xValues) {
         ArrayList<Entry> yValues = new ArrayList<>();
-        //Float[] expenses = new Float[12];
+        ArrayList<Float> expenses = new ArrayList<>(Collections.nCopies(12, 0.0f));
 
         SimpleDateFormat sdf = new SimpleDateFormat(Transaction.DATE_FORMAT, Locale.US);
         Calendar calendar = Calendar.getInstance();
@@ -111,7 +124,10 @@ public class MonthlyChartActivity extends AppCompatActivity {
                     try {
                         parse = sdf.parse(transaction.getDateTime());
                         calendar.setTime(parse);
-                        //expenses[calendar.get(Calendar.MONTH)] += transaction.getAmount();
+                        int index = calendar.get(Calendar.MONTH);
+                        Float f = expenses.get(index);
+                        f += transaction.getAmount();
+                        expenses.set(index, f);
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
@@ -119,12 +135,45 @@ public class MonthlyChartActivity extends AppCompatActivity {
             }
         }
 
+        for (int i = 0; i < expenses.size(); i++) {
+            yValues.add(new Entry(expenses.get(i), i));
+        }
 
         return yValues;
     }
 
     private ArrayList<Entry> displayIncome(List<Category> categories, List<String> xValues) {
-        return null;
+        ArrayList<Entry> yValues = new ArrayList<>();
+        ArrayList<Float> income = new ArrayList<>(Collections.nCopies(12, 0.0f));
+
+        SimpleDateFormat sdf = new SimpleDateFormat(Transaction.DATE_FORMAT, Locale.US);
+        Calendar calendar = Calendar.getInstance();
+
+        for (int i = 0; i < categories.size(); i++) {
+            List<Transaction> transactions = categories.get(i).getTransactions();
+            for (int j = 0; j < transactions.size(); j++) {
+                Transaction transaction = transactions.get(j);
+                if (transaction.isIncome()) {
+                    Date parse = null;
+                    try {
+                        parse = sdf.parse(transaction.getDateTime());
+                        calendar.setTime(parse);
+                        int index = calendar.get(Calendar.MONTH);
+                        Float f = income.get(index);
+                        f += transaction.getAmount();
+                        income.set(index, f);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < income.size(); i++) {
+            yValues.add(new Entry(income.get(i), i));
+        }
+
+        return yValues;
     }
 
     @Override

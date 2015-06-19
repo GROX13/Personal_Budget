@@ -1,5 +1,6 @@
 package org.giorgi.personalbudget.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.giorgi.personalbudget.R;
 import org.giorgi.personalbudget.adapter.CategoryAdapter;
@@ -60,7 +62,16 @@ public class CategoriesActivity extends AppCompatActivity {
                 // TODO:
                 return true;
             case R.id.action_delete_category:
-                // TODO:
+                if (PersonalBudget.getSelectedCategory() == null) {
+                    Context context = getApplicationContext();
+                    CharSequence text = "Please first select category!";
+                    int duration = Toast.LENGTH_LONG;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                } else {
+                    PersonalBudget.removeCategory(PersonalBudget.getSelected());
+                }
                 return true;
             case R.id.action_settings:
                 // TODO:

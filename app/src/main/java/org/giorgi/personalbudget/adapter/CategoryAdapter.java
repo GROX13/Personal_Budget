@@ -23,6 +23,7 @@ public class CategoryAdapter extends BaseAdapter {
 
     public CategoryAdapter(Activity activity) {
         this.activity = activity;
+        PersonalBudget.registerAdapter(this);
     }
 
     @Override

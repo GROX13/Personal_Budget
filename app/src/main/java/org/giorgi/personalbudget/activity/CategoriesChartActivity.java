@@ -37,7 +37,7 @@ public class CategoriesChartActivity extends AppCompatActivity {
 
         YAxis leftAxis = mChart.getAxisLeft();
         leftAxis.removeAllLimitLines(); // reset all limit lines to avoid overlapping lines
-        leftAxis.setAxisMaxValue(200f);
+//        leftAxis.setAxisMaxValue(PersonalBudget.getMaxValue() + 50f);
         leftAxis.setAxisMinValue(0f);
         leftAxis.setStartAtZero(false);
         leftAxis.enableGridDashedLine(10f, 10f, 0f);
@@ -54,6 +54,18 @@ public class CategoriesChartActivity extends AppCompatActivity {
 
         ArrayList<Entry> income = displayIncome(categories);
         ArrayList<Entry> expenses = displayExpenses(categories);
+
+        float max = 0.0f;
+        for (int i = 0; i < income.size(); i++) {
+            float inc = income.get(i).getVal();
+            if (inc > max)
+                max = inc;
+            float exp = expenses.get(i).getVal();
+            if (exp > max)
+                max = exp;
+        }
+
+        leftAxis.setAxisMaxValue(max + 50f);
 
         // create a data set and give it a type
         LineDataSet set1 = new LineDataSet(income, "Income");

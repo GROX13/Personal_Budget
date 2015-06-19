@@ -1,23 +1,31 @@
 package org.giorgi.personalbudget.application;
 
 import android.app.Application;
+import android.widget.BaseAdapter;
 
 import org.giorgi.personalbudget.database.StubAnalyser;
 import org.giorgi.personalbudget.model.Category;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PersonalBudget extends Application {
-    private static List<Category> categoryList;
     private static int selected = -1;
+    private static List<Category> categoryList;
+    private static ArrayList<BaseAdapter> adapters = new ArrayList<>();
 
     public static void addCategory(String category) {
-        // TODO: Implement!
         categoryList.add(new Category(category));
+        notifyAdapters();
     }
 
     public static void removeCategory(int index) {
-        // TODO: Implement!
+        categoryList.remove(index);
+        notifyAdapters();
+    }
+
+    public static int getSelected() {
+        return selected;
     }
 
     public static void setSelected(int selected) {
@@ -30,6 +38,16 @@ public class PersonalBudget extends Application {
 
     public static List<Category> getCategoryList() {
         return categoryList;
+    }
+
+    public static void registerAdapter(BaseAdapter adapter) {
+        adapters.add(adapter);
+    }
+
+    public static void notifyAdapters() {
+        for (int i = 0; i < adapters.size(); i++) {
+            adapters.get(i).notifyDataSetChanged();
+        }
     }
 
     @Override

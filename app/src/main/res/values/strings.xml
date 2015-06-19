@@ -6,7 +6,7 @@
     <string name="title_activity_category">Category Activity</string>
     <string name="action_add_category">Add Category</string>
     <string name="action_delete_category">Delete Category</string>
-    <string name="action_see_chart">See Chart</string>
+    <string name="action_see_chart">See category Chart</string>
     <string name="title_activity_categories_chart">Categories Chart</string>
     <string name="image_description">image</string>
     <string name="amount">Amount:</string>
