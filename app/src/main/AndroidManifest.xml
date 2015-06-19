@@ -25,7 +25,8 @@
             android:label="@string/title_activity_category" />
         <activity
             android:name=".activity.CategoriesChartActivity"
-            android:label="@string/title_activity_categories_chart"></activity>
+            android:label="@string/title_activity_categories_chart">
+        </activity>
         <activity
             android:name=".activity.MonthlyChartActivity"
             android:label="@string/title_activity_monthly_chart">
