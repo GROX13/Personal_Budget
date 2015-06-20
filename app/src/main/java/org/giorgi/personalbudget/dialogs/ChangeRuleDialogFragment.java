@@ -15,10 +15,6 @@ import org.giorgi.personalbudget.R;
 import org.giorgi.personalbudget.application.PersonalBudget;
 import org.giorgi.personalbudget.model.Category;
 
-/**
- * TODO: Implement!
- * Created by Giorgi on 6/20/2015.
- */
 public class ChangeRuleDialogFragment extends DialogFragment {
 
     @SuppressLint("InflateParams")

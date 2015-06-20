@@ -19,4 +19,6 @@
     <string name="dialog_category_rule">Category rules</string>
     <string name="dialog_category_name">Category name</string>
     <string name="action_change_rule">Change rule</string>
+    <string name="action_filter">Filter content</string>
+    <string name="title_activity_filter">FilterActivity</string>
 </resources>
