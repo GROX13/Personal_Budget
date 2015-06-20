@@ -8,6 +8,10 @@ import android.view.MenuItem;
 
 import org.giorgi.personalbudget.R;
 import org.giorgi.personalbudget.activity.CategoryActivity;
+import org.giorgi.personalbudget.application.PersonalBudget;
+import org.giorgi.personalbudget.model.Transaction;
+
+import java.util.List;
 
 
 public class FilterActivity extends AppCompatActivity {
@@ -17,6 +21,8 @@ public class FilterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
 
+//        List<Transaction> filtered =
+//                PersonalBudget.getSelectedCategory().getExpensesInPeriod(CategoryActivity.start, CategoryActivity.end);
         Log.d("Start", CategoryActivity.start);
         Log.d("End", CategoryActivity.end);
 
