@@ -14,11 +14,6 @@ import org.giorgi.personalbudget.R;
 import org.giorgi.personalbudget.application.PersonalBudget;
 import org.giorgi.personalbudget.model.Category;
 
-/**
- * TODO
- * <p/>
- * Created by Giorgi on 6/20/2015.
- */
 public class AddCategoryDialogFragment extends DialogFragment {
 
     @SuppressLint("InflateParams")

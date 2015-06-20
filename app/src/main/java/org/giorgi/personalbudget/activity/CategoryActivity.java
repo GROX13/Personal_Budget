@@ -1,28 +1,33 @@
 package org.giorgi.personalbudget.activity;
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.giorgi.personalbudget.R;
 import org.giorgi.personalbudget.adapter.TransactionAdapter;
 import org.giorgi.personalbudget.application.PersonalBudget;
+import org.giorgi.personalbudget.dialogs.AddCategoryDialogFragment;
+import org.giorgi.personalbudget.dialogs.MoveCategoryDialogFragment;
 import org.giorgi.personalbudget.model.Category;
 
 
 public class CategoryActivity extends AppCompatActivity {
 
-    private static int selected = -1;
+    private int selected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
+        selected = -1;
         Category category = PersonalBudget.getSelectedCategory();
         setTitle(category.getCategoryName());
 
@@ -52,7 +57,15 @@ public class CategoryActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.action_move:
-                // TODO:
+                if (selected != -1) {
+                    MoveCategoryDialogFragment newFragment = new MoveCategoryDialogFragment();
+                    newFragment.setSelected(selected);
+                    newFragment.show(getSupportFragmentManager(), "Move category");
+                } else {
+                    CharSequence text = "Please first select transaction!";
+                    Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
+                    toast.show();
+                }
                 return true;
             case R.id.action_settings:
                 // TODO:

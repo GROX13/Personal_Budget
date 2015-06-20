@@ -14,7 +14,7 @@ public class Category {
 
     public Category(String category) {
         this.categoryName = category;
-        this.rule = new String[] {};
+        this.rule = new String[]{};
         this.transactions = new ArrayList<>();
     }
 
@@ -24,6 +24,12 @@ public class Category {
 
     public void addTransaction(Transaction transaction) {
         this.transactions.add(transaction);
+    }
+
+    public Transaction removeTransaction(int index) {
+        Transaction t = this.transactions.get(index);
+        this.transactions.remove(index);
+        return t;
     }
 
     public float getIncome() {
@@ -79,14 +85,16 @@ public class Category {
         return true;
     }
 
-
     public void setRule(String rule) {
         this.rule = rule.split(";");
     }
 
-
     public int getPrediction(String message) {
-        // TODO: Implement!
-        return 0;
+        int prediction = 0;
+        for (String aRule : rule) {
+            if (message.contains(aRule))
+                prediction++;
+        }
+        return prediction;
     }
 }

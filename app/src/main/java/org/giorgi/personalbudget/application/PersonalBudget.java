@@ -5,6 +5,7 @@ import android.widget.BaseAdapter;
 
 import org.giorgi.personalbudget.database.StubAnalyser;
 import org.giorgi.personalbudget.model.Category;
+import org.giorgi.personalbudget.model.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,12 @@ public class PersonalBudget extends Application {
         }
     }
 
+    public static void move(int selected, int which) {
+        Transaction t = PersonalBudget.getSelectedCategory().removeTransaction(selected);
+        PersonalBudget.categoryList.get(which).addTransaction(t);
+        notifyAdapters();
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -58,4 +65,5 @@ public class PersonalBudget extends Application {
         StubAnalyser analyser = new StubAnalyser();
         categoryList = analyser.getCategoryList();
     }
+
 }
