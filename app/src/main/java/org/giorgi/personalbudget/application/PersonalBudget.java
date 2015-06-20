@@ -14,13 +14,14 @@ public class PersonalBudget extends Application {
     private static List<Category> categoryList;
     private static ArrayList<BaseAdapter> adapters = new ArrayList<>();
 
-    public static void addCategory(String category) {
-        categoryList.add(new Category(category));
+    public static void addCategory(Category category) {
+        categoryList.add(category);
         notifyAdapters();
     }
 
     public static void removeCategory(int index) {
         categoryList.remove(index);
+        PersonalBudget.selected = -1;
         notifyAdapters();
     }
 

@@ -1,8 +1,8 @@
 package org.giorgi.personalbudget.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 import org.giorgi.personalbudget.R;
 import org.giorgi.personalbudget.adapter.CategoryAdapter;
 import org.giorgi.personalbudget.application.PersonalBudget;
+import org.giorgi.personalbudget.dialogs.AddCategoryDialogFragment;
 
 
 public class CategoriesActivity extends AppCompatActivity {
@@ -59,15 +60,17 @@ public class CategoriesActivity extends AppCompatActivity {
                 this.startActivity(intent);
                 return true;
             case R.id.action_add_category:
-                // TODO:
+                DialogFragment newFragment = new AddCategoryDialogFragment();
+                newFragment.show(getSupportFragmentManager(), "Add category");
                 return true;
             case R.id.action_delete_category:
                 if (PersonalBudget.getSelectedCategory() == null) {
-                    Context context = getApplicationContext();
                     CharSequence text = "Please first select category!";
-                    int duration = Toast.LENGTH_LONG;
-
-                    Toast toast = Toast.makeText(context, text, duration);
+                    Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
+                    toast.show();
+                } else if (PersonalBudget.getSelected() <= 5) {
+                    CharSequence text = "Default category can't be deleted!";
+                    Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
                     toast.show();
                 } else {
                     PersonalBudget.removeCategory(PersonalBudget.getSelected());

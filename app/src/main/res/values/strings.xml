@@ -16,4 +16,6 @@
     <string name="move_to">Move to</string>
     <string name="title_activity_monthly_chart">Monthly Chart</string>
     <string name="action_monthly_chart">See monthly charts</string>
+    <string name="dialog_category_rule">Category rules</string>
+    <string name="dialog_category_name">Category name</string>
 </resources>

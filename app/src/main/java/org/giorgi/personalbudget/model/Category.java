@@ -10,9 +10,11 @@ import java.util.List;
 public class Category {
     private String categoryName;
     private ArrayList<Transaction> transactions;
+    private String[] rule;
 
     public Category(String category) {
         this.categoryName = category;
+        this.rule = new String[] {};
         this.transactions = new ArrayList<>();
     }
 
@@ -78,4 +80,13 @@ public class Category {
     }
 
 
+    public void setRule(String rule) {
+        this.rule = rule.split(";");
+    }
+
+
+    public int getPrediction(String message) {
+        // TODO: Implement!
+        return 0;
+    }
 }
