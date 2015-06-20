@@ -1,5 +1,7 @@
 package org.giorgi.personalbudget.model;
 
+import android.text.TextUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,5 +98,9 @@ public class Category {
                 prediction++;
         }
         return prediction;
+    }
+
+    public String getRuleString() {
+        return TextUtils.join(";", rule);
     }
 }

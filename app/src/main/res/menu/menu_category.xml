@@ -8,6 +8,11 @@
         android:title="@string/move_to"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_change_rules"
+        android:orderInCategory="100"
+        android:title="@string/action_change_rule"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"

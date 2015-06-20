@@ -18,4 +18,5 @@
     <string name="action_monthly_chart">See monthly charts</string>
     <string name="dialog_category_rule">Category rules</string>
     <string name="dialog_category_name">Category name</string>
+    <string name="action_change_rule">Change rule</string>
 </resources>

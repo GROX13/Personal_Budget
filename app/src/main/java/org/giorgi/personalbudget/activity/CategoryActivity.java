@@ -14,6 +14,7 @@ import org.giorgi.personalbudget.R;
 import org.giorgi.personalbudget.adapter.TransactionAdapter;
 import org.giorgi.personalbudget.application.PersonalBudget;
 import org.giorgi.personalbudget.dialogs.AddCategoryDialogFragment;
+import org.giorgi.personalbudget.dialogs.ChangeRuleDialogFragment;
 import org.giorgi.personalbudget.dialogs.MoveCategoryDialogFragment;
 import org.giorgi.personalbudget.model.Category;
 
@@ -66,6 +67,10 @@ public class CategoryActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
                     toast.show();
                 }
+                return true;
+            case R.id.action_change_rules:
+                DialogFragment newFragment = new ChangeRuleDialogFragment();
+                newFragment.show(getSupportFragmentManager(), "Change category rule");
                 return true;
             case R.id.action_settings:
                 // TODO:
