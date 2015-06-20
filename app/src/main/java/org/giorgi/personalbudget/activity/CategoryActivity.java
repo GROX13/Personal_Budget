@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import org.giorgi.personalbudget.FilterActivity;
 import org.giorgi.personalbudget.R;
 import org.giorgi.personalbudget.adapter.TransactionAdapter;
 import org.giorgi.personalbudget.application.PersonalBudget;

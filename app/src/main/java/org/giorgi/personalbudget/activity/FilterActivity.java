@@ -1,4 +1,4 @@
-package org.giorgi.personalbudget;
+package org.giorgi.personalbudget.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.giorgi.personalbudget.R;
 import org.giorgi.personalbudget.activity.CategoryActivity;
 
 

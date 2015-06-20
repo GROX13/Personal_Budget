@@ -32,7 +32,7 @@
             android:label="@string/title_activity_monthly_chart" >
         </activity>
         <activity
-            android:name=".FilterActivity"
+            android:name=".activity.FilterActivity"
             android:label="@string/title_activity_filter" >
         </activity>
     </application>
