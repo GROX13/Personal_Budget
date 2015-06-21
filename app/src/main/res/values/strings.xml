@@ -21,4 +21,7 @@
     <string name="action_change_rule">Change rule</string>
     <string name="action_filter">Filter content</string>
     <string name="title_activity_filter">FilterActivity</string>
+
+    <string name="title_section1">Income</string>
+    <string name="title_section2">Expenses</string>
 </resources>

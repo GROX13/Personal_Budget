@@ -54,26 +54,26 @@ public class Category {
         return expenses;
     }
 
-    public float getIncomeInPeriod(String startDate, String endDate) {
-        float income = 0;
+    public List<Transaction> getIncomeInPeriod(String startDate, String endDate) {
+        List<Transaction> t = new ArrayList<>();
         for (int i = 0; i < transactions.size(); i++) {
             Transaction transaction = transactions.get(i);
             if (transaction.isIncome())
                 if (isInPeriod(transaction, startDate, endDate))
-                    income += transaction.getAmount();
+                    t.add(transaction);
         }
-        return income;
+        return t;
     }
 
-    public float getExpensesInPeriod(String startDate, String endDate) {
-        float expenses = 0;
+    public List<Transaction> getExpensesInPeriod(String startDate, String endDate) {
+        List<Transaction> t = new ArrayList<>();
         for (int i = 0; i < transactions.size(); i++) {
             Transaction transaction = transactions.get(i);
             if (transaction.isExpense())
                 if (isInPeriod(transaction, startDate, endDate))
-                    expenses += transaction.getAmount();
+                    t.add(transaction);
         }
-        return expenses;
+        return t;
     }
 
     public List<Transaction> getTransactions() {
