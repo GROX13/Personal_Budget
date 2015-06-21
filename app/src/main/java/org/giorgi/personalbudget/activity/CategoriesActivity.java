@@ -85,4 +85,10 @@ public class CategoriesActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        PersonalBudget.saveToDataBase();
+    }
 }

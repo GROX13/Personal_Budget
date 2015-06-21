@@ -5,7 +5,7 @@ package org.giorgi.personalbudget.model;
  * Created by Giorgi on 6/16/2015.
  */
 public class Transaction {
-    public static final String DATE_FORMAT = "dd/MM/yyyy hh:mm:ss";
+    public static final String DATE_FORMAT = "dd/MM/yyyy";
 
     private float amount;
     private boolean income;

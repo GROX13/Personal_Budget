@@ -3,7 +3,12 @@ package org.giorgi.personalbudget.application;
 import android.app.Application;
 import android.widget.BaseAdapter;
 
-import org.giorgi.personalbudget.database.StubAnalyser;
+import org.giorgi.personalbudget.database.DataBaseAdapter;
+import org.giorgi.personalbudget.database.DataBaseAnalyser;
+import org.giorgi.personalbudget.database.MessageAnalyser;
+import org.giorgi.personalbudget.database.MessageBaseAdapter;
+import org.giorgi.personalbudget.database.StubDataBase;
+import org.giorgi.personalbudget.database.StubMessageBase;
 import org.giorgi.personalbudget.model.Category;
 import org.giorgi.personalbudget.model.Transaction;
 
@@ -14,6 +19,7 @@ public class PersonalBudget extends Application {
     private static int selected = -1;
     private static List<Category> categoryList;
     private static ArrayList<BaseAdapter> adapters = new ArrayList<>();
+    private static DataBaseAdapter dataBaseAdapter;
 
     public static void addCategory(Category category) {
         categoryList.add(category);
@@ -58,12 +64,22 @@ public class PersonalBudget extends Application {
         notifyAdapters();
     }
 
+    public static void saveToDataBase() {
+        if (dataBaseAdapter.existsDataBase())
+            dataBaseAdapter.dropDataBase();
+        else
+            dataBaseAdapter.createDatabase();
+        dataBaseAdapter.saveToDataBase(categoryList);
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         // TODO: This line of code should be changed to real analyser!
-        StubAnalyser analyser = new StubAnalyser();
+        // DataBaseAnalyser analyser = new StubAnalyser();
+        dataBaseAdapter = new StubDataBase();
+        MessageBaseAdapter messageBaseAdapter = new StubMessageBase();
+        DataBaseAnalyser analyser = new MessageAnalyser(dataBaseAdapter, messageBaseAdapter);
         categoryList = analyser.getCategoryList();
     }
-
 }
