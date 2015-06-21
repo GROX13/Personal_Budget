@@ -65,6 +65,7 @@ public class CategoryActivity extends AppCompatActivity {
                     MoveCategoryDialogFragment newDialogFragment = new MoveCategoryDialogFragment();
                     newDialogFragment.setSelected(selected);
                     newDialogFragment.show(getSupportFragmentManager(), "Move category");
+                    selected = -1;
                 } else {
                     CharSequence text = "Please first select transaction!";
                     Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);

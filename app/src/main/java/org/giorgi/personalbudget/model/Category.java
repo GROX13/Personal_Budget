@@ -1,7 +1,10 @@
 package org.giorgi.personalbudget.model;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,10 +84,15 @@ public class Category {
     }
 
     private boolean isInPeriod(Transaction transaction, String startDate, String endDate) {
-        // TODO: Needs to be implemented!
-        if (transaction.getDateTime() == "")
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat sdf = new SimpleDateFormat(Transaction.DATE_FORMAT);
+        try {
+            return sdf.parse(startDate).before(sdf.parse(transaction.getDateTime()))
+                    && sdf.parse(transaction.getDateTime()).before(sdf.parse(endDate));
+        } catch (ParseException e) {
+            e.printStackTrace();
             return false;
-        return true;
+        }
     }
 
     public void setRule(String rule) {
