@@ -15,7 +15,7 @@ public class StubMessageBase implements MessageBaseAdapter {
         List<String> transactions = new ArrayList<>();
         transactions.add("sakartvelos banki: gasavlis operacia tanxa: GEL1476.35 angarishidan: " +
                 "[აქ ანგარიშის სახელი] tarigi: 29/10/2012");
-        transactions.add("sakartvelos banki: gasavlis operacia tanxa: USD34.65 angarishidan: " +
+        transactions.add("sakartvelos banki: gasavlis operacia tanxa: GEL34.65 angarishidan: " +
                 "[აქ ანგარიშის სახელი] tarigi: 16/07/2013");
 
         // 2. ბანკომატიდან თანხის გატანა

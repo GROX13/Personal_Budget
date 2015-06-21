@@ -97,7 +97,7 @@ public class Category {
             if (message.contains(aRule))
                 prediction++;
         }
-        return prediction;
+        return prediction * 2;
     }
 
     public String getRuleString() {

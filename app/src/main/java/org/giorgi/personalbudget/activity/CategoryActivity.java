@@ -76,6 +76,8 @@ public class CategoryActivity extends AppCompatActivity {
                 newFragment.show(getSupportFragmentManager(), "Change category rule");
                 return true;
             case R.id.action_filter:
+                start = null;
+                end = null;
                 Intent intent = new Intent(this, FilterActivity.class);
                 DatePickerFragment.setIntent(intent);
                 newFragment = new DatePickerFragment();
