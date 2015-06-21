@@ -3,11 +3,11 @@ package org.giorgi.personalbudget.application;
 import android.app.Application;
 import android.widget.BaseAdapter;
 
+import org.giorgi.personalbudget.database.DataBase;
 import org.giorgi.personalbudget.database.DataBaseAdapter;
 import org.giorgi.personalbudget.database.DataBaseAnalyser;
 import org.giorgi.personalbudget.database.MessageAnalyser;
 import org.giorgi.personalbudget.database.MessageBaseAdapter;
-import org.giorgi.personalbudget.database.StubDataBase;
 import org.giorgi.personalbudget.database.StubMessageBase;
 import org.giorgi.personalbudget.model.Category;
 import org.giorgi.personalbudget.model.Transaction;
@@ -75,9 +75,15 @@ public class PersonalBudget extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        // TODO: This line of code should be changed to real analyser!
+        /* This line of code should be changed to real analyser! */
         // DataBaseAnalyser analyser = new StubAnalyser();
-        dataBaseAdapter = new StubDataBase();
+
+        /* Line below is used in case you don't want to use anything from db */
+        // dataBaseAdapter = new StubDataBase();
+
+        /* Line below is used in case you want to use information from real db */
+        dataBaseAdapter = new DataBase(this);
+
         MessageBaseAdapter messageBaseAdapter = new StubMessageBase();
         DataBaseAnalyser analyser = new MessageAnalyser(dataBaseAdapter, messageBaseAdapter);
         categoryList = analyser.getCategoryList();

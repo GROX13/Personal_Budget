@@ -1,5 +1,7 @@
 package org.giorgi.personalbudget.database;
 
+import android.util.Log;
+
 import org.giorgi.personalbudget.model.Category;
 
 import java.util.List;
@@ -28,11 +30,11 @@ public class StubDataBase implements DataBaseAdapter {
 
     @Override
     public List<Category> readFromDataBase() {
-        return null;
+        return new StubAnalyser().getCategoryList();
     }
 
     @Override
     public void saveToDataBase(List<Category> data) {
-
+        Log.d("DATA BASE", "Saving to database!");
     }
 }
