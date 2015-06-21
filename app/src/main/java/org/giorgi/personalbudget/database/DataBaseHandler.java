@@ -140,7 +140,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                         KEY_TRANSACTION_DATE,
                         KEY_TRANSACTION_INCOME
                 },
-                KEY_TRANSACTION_ID + "=?",
+                KEY_TRANSACTION_CATEGORY + "=?",
                 new String[]{String.valueOf(categoryId)}, null, null, null, null);
 
         // looping through all rows and adding to list
