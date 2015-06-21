@@ -45,7 +45,7 @@
 
 
 თი ბი სი ბანკი
-==============
+--------------
 1. თანხის ჩარიცხვა
 
 > Tanxis charicxva  01/11/2013  Angarishi: VISA ELECTRON  Tanxa: XXXX.XX GEL  Gmadlobt
