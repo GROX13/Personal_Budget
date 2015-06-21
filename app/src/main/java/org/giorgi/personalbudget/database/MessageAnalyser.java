@@ -112,7 +112,8 @@ public class MessageAnalyser extends BroadcastReceiver implements DataBaseAnalys
                 date += message.charAt(i);
             }
 
-            return new Transaction(Float.valueOf(amount), (message.contains(incomeKey)), date);
+            return new Transaction
+                    (Float.valueOf(amount), (message.contains(incomeKey)), date, message);
         } else if (message.contains(TBCAmount)) {
             int index = message.indexOf(TBCAmount);
             int i = index + TBCAmount.length();
@@ -144,7 +145,8 @@ public class MessageAnalyser extends BroadcastReceiver implements DataBaseAnalys
                 date += message.charAt(i);
             }
 
-            return new Transaction(Float.valueOf(amount), (message.contains(incomeKey)), date);
+            return new Transaction
+                    (Float.valueOf(amount), (message.contains(incomeKey)), date, message);
         } else
             return null;
     }

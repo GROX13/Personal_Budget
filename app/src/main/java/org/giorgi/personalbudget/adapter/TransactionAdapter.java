@@ -43,6 +43,7 @@ public class TransactionAdapter extends BaseAdapter {
         View row = inflater.inflate(R.layout.element_transaction, parent, false);
 
         ImageView image = (ImageView) row.findViewById(R.id.image);
+        TextView message = (TextView) row.findViewById(R.id.message_text);
         TextView amount = (TextView) row.findViewById(R.id.amount);
         TextView date = (TextView) row.findViewById(R.id.date);
 
@@ -56,6 +57,7 @@ public class TransactionAdapter extends BaseAdapter {
 
         amount.setText(String.valueOf(transaction.getAmount()));
         date.setText(String.valueOf(transaction.getDateTime()));
+        message.setText(transaction.getMessage());
 
         return row;
     }

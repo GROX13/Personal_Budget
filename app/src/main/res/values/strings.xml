@@ -20,8 +20,9 @@
     <string name="dialog_category_name">Category name</string>
     <string name="action_change_rule">Change rule</string>
     <string name="action_filter">Filter content</string>
-    <string name="title_activity_filter">FilterActivity</string>
+    <string name="title_activity_filter">Filtered Transactions</string>
 
     <string name="title_section1">Income</string>
     <string name="title_section2">Expenses</string>
+    <string name="message_text_place_holder">Here goes message text!</string>
 </resources>

@@ -52,6 +52,7 @@ public class IncomeAdapter extends BaseAdapter {
         ImageView image = (ImageView) row.findViewById(R.id.image);
         TextView amount = (TextView) row.findViewById(R.id.amount);
         TextView date = (TextView) row.findViewById(R.id.date);
+        TextView message = (TextView) row.findViewById(R.id.message_text);
 
         Transaction transaction = transactionList.get(position);
 
@@ -59,6 +60,8 @@ public class IncomeAdapter extends BaseAdapter {
 
         amount.setText(String.valueOf(transaction.getAmount()));
         date.setText(String.valueOf(transaction.getDateTime()));
+        message.setText(transaction.getMessage());
+
         return row;
     }
 

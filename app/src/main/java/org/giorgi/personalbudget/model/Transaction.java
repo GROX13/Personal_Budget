@@ -10,11 +10,17 @@ public class Transaction {
     private float amount;
     private boolean income;
     private String time;
+    private String message;
 
-    public Transaction(float amount, boolean income, String time) {
+    public Transaction(float amount, boolean income, String time, String message) {
+        this.message = message;
         this.amount = amount;
         this.income = income;
         this.time = time;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     public float getAmount() {
